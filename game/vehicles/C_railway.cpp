@@ -1280,9 +1280,9 @@ void C_railway::SpringProcess(uint time, int index, S_vector *out, S_vector *dir
         return;
     I3D_frame *frm = index == 0 ? frame : wagon_frames[index - 1];
     S_matrix m = frm->GetMatrix();
-    m(3).x = 0.0f;
-    m(3).y = 0.0f;
     m(3).z = 0.0f;
+    m(3).y = 0.0f;
+    m(3).x = 0.0f;
     float k = drive_speed / max_speed;
     wagon_angles[index] += (float)time / (1000.0f / (12.0f * k));
     if (wagon_angles[index] > PI * 2.0f)
