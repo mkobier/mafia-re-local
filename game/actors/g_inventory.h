@@ -211,4 +211,4 @@ public:
 // The items' erase, which C_using_object::FindNearObjects' clear calls: the original's copy is in jp_ai_entity.cpp's
 // range
 // TEMPLATE: GAME 0x505020
-// ?erase@?$vector@Ugcol_CurveSphereStruct@g_collision@@V?$allocator@Ugcol_CurveSphereStruct@g_collision@@@std@@@std@@QAEPAUgcol_CurveSphereStruct@g_collision@@PAU34@0@Z
+// ?erase@?$vector@US_GameItem@@V?$allocator@US_GameItem@@@std@@@std@@QAEPAUS_GameItem@@PAU3@0@Z

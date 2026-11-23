@@ -54,7 +54,7 @@
 0x00404290  100.00%   std::copy_backward(struct S_cache_base_block *, struct S_cache_base_block *, struct S_cache_base_block *)
 0x00404440  100.00%   std::fill(struct S_cache_model_set *, struct S_cache_model_set *, struct S_cache_model_set const &)
 0x004045f0  100.00%   std::copy_backward(struct S_cache_model_set *, struct S_cache_model_set *, struct S_cache_model_set *)
-0x004047c0  100.00%   std::fill(struct C_I3D_cache<class I3D_sound>::S_itm *, struct C_I3D_cache<class I3D_sound>::S_itm *, struct C_I3D_cache<class I3D_sound>::S_itm const &)
+0x004047c0  100.00%   std::fill(struct C_I3D_cache<class I3D_model>::S_itm *, struct C_I3D_cache<class I3D_model>::S_itm *, struct C_I3D_cache<class I3D_model>::S_itm const &)
 0x00404810  100.00%   std::_Construct(struct C_sledovacka::S_ELEMENT *, struct C_sledovacka::S_ELEMENT const &)
 0x00404830  100.00%   std::_Construct(struct S_cache_model_one *, struct S_cache_model_one const &)
 0x00404840  100.00%   std::_Construct(struct S_cache_base_block *, struct S_cache_base_block const &)
@@ -116,18 +116,18 @@
 0x00408750  100.00%   DoneAnimIndex
 0x00408760  100.00%   GetAnimIndex
 0x004087b0  100.00%   UnlinkAllFrameChild
-0x004087e0  85.85%    C_I3D_cache<I3D_model>::Open
+0x004087e0  100.00%   C_I3D_cache<I3D_model>::Open
 0x00408c50  100.00%   C_str::C_rep::C_rep(char const *, int)
 0x00408c90  100.00%   C_str::C_rep::operator delete
 0x00408ca0  100.00%   C_str::ToUpper
 0x00408cc0  100.00%   C_fstr::C_fstr
-0x00408d90  80.51%    C_I3D_cache<I3D_sound>::Open
+0x00408d90  92.99%    C_I3D_cache<I3D_sound>::Open
 0x004091d0  100.00%   C_actor::Release
 0x004091f0  100.00%   C_actor::GetActorSpeed
 0x00409210  100.00%   C_actor::GetMaterialID
 0x00409220  100.00%   C_actor::GetProgram
 0x00409230  100.00%   std::vector<C_I3D_cache<I3D_model>::S_itm,std::allocator<C_I3D_cache<I3D_model>::S_itm> >::_Destroy
-0x00409260  100.00%   std::copy(struct C_I3D_cache<class I3D_animation_set>::S_itm *, struct C_I3D_cache<class I3D_animation_set>::S_itm *, struct C_I3D_cache<class I3D_animation_set>::S_itm *)
+0x00409260  100.00%   std::copy(struct C_I3D_cache<class I3D_sound>::S_itm *, struct C_I3D_cache<class I3D_sound>::S_itm *, struct C_I3D_cache<class I3D_sound>::S_itm *)
 0x004092c0  100.00%   std::copy_backward(struct C_I3D_cache<class I3D_model>::S_itm *, struct C_I3D_cache<class I3D_model>::S_itm *, struct C_I3D_cache<class I3D_model>::S_itm *)
 0x00409320  100.00%   std::_Construct(struct C_I3D_cache<class I3D_sound>::S_itm *, struct C_I3D_cache<class I3D_sound>::S_itm const &)
 0x00409360  missing   $CRT_CPP_Initializer(9)
@@ -2478,7 +2478,7 @@
 0x005c1360  74.49%    C_I3D_cache<I3D_sound>::MakeRelative
 0x005c1650  100.00%   C_I3D_cache_base<I3D_sound>::~C_I3D_cache_base<I3D_sound>
 0x005c1660  100.00%   C_I3D_cache<I3D_animation_set>::SetCacheSize
-0x005c1670  78.74%    C_I3D_cache<I3D_animation_set>::Open
+0x005c1670  78.69%    C_I3D_cache<I3D_animation_set>::Open
 0x005c1aa0  94.44%    C_I3D_cache<I3D_animation_set>::DelDir
 0x005c1cb0  74.49%    C_I3D_cache<I3D_animation_set>::MakeRelative
 0x005c1fa0  100.00%   C_I3D_cache_base<I3D_animation_set>::~C_I3D_cache_base<I3D_animation_set>

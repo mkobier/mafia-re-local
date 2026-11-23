@@ -197,9 +197,9 @@ void C_I3D_cache<T>::SetCacheSize(int size)
 // leaves it first. Out of memory and a corrupted file end the search, the error unreported.
 // The inlined Match calls the mask's conversion and ToUpper out of line, as the originals do, through those functions'
 // size (common/C_str.h): VC6 inlines a call nested in an inlined function whatever the budget when the callee is tiny.
-// Open: the rest differs in registers and in which later calls each copy inlines (the anim cache's second erase
-// copies through S_itm's assignment and calls _Destroy, the original calls std::copy and destroys through ??_G): the
-// model cache's 86%, the sound cache's 64%, the anim cache's 79%.
+// Open: the model cache's copy matches; the sound and the anim caches' still differ in registers and in which later
+// calls each copy inlines (the anim cache's second erase copies through S_itm's assignment and calls _Destroy, the
+// original calls std::copy and destroys through ??_G): the sound cache's 93%, the anim cache's 79%.
 template<class T>
 LS3D_RESULT C_I3D_cache<T>::Open(T *obj, const char *name, uint flags, I3D_CACHE_CB_PROC *cb, void *context,
     void *reserved)
@@ -212,20 +212,21 @@ LS3D_RESULT C_I3D_cache<T>::Open(T *obj, const char *name, uint flags, I3D_CACHE
     if (i != -1)
         items.erase(items.begin() + i);
     for (uint j = 0; j < items.size(); j++) {
-        if (!items[j].name.Match(name))
+        const char *nm = name;
+        if (!items[j].name.Match(nm))
             continue;
         Duplicate(obj, items[j].obj);
         return I3D_OK;
     }
-    flags |= I3DLOAD_UNKNOWN_10;
-    if (cb)
-        flags |= I3DLOAD_ERRORS;
     LS3D_RESULT ret = I3DERR_NOFILE;
     S_cache_cb_context c;
     c.cb = cb;
     c.context = context;
+    uint fl = flags | I3DLOAD_UNKNOWN_10;
+    if (cb)
+        fl |= I3DLOAD_ERRORS;
     for (uint k = 0; k < dirs.size(); k++) {
-        ret = obj->Open(dirs[k] + name, flags, LoadCallback, &c);
+        ret = obj->Open(dirs[k] + name, fl, LoadCallback, &c);
         if (ret == I3DERR_NOFILE)
             continue;
         if (ret == I3DERR_OUTOFMEM || ret == I3DERR_FILECORRUPTED)
@@ -437,7 +438,7 @@ extern C_I3D_anim_cache anim_cache;
 // ?_Destroy@?$vector@US_itm@?$C_I3D_cache@VI3D_sound@@@@V?$allocator@US_itm@?$C_I3D_cache@VI3D_sound@@@@@std@@@std@@IAEXPAUS_itm@?$C_I3D_cache@VI3D_sound@@@@0@Z
 
 // TEMPLATE: GAME 0x409260
-// ?copy@std@@YIPAUS_itm@?$C_I3D_cache@VI3D_animation_set@@@@PAU23@00@Z
+// ?copy@std@@YIPAUS_itm@?$C_I3D_cache@VI3D_sound@@@@PAU23@00@Z
 
 // The items' insert's helpers, C_actor.cpp's copies too: copy_backward and the copy constructor's _Construct
 // TEMPLATE: GAME 0x4092c0
@@ -537,7 +538,7 @@ extern C_I3D_anim_cache anim_cache;
 // ?GetDir@?$C_I3D_cache@VI3D_model@@@@UBEPBDH@Z
 
 // TEMPLATE: GAME 0x5c12f0
-// ?ClearDirs@?$C_I3D_cache@VI3D_sound@@@@UAEXXZ
+// ?ClearDirs@?$C_I3D_cache@VI3D_model@@@@UAEXXZ
 
 // TEMPLATE: GAME 0x5c1660
 // ?SetCacheSize@?$C_I3D_cache@VI3D_model@@@@UAEXH@Z

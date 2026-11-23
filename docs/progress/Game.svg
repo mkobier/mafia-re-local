@@ -17,9 +17,9 @@
 <text x="24" y="38" font-size="18" font-weight="600">Game.exe</text>
 <text x="376" y="38" font-size="18" font-weight="600" text-anchor="end">57.11%</text>
 <rect class="track" x="24" y="50" width="352" height="8" rx="4"/>
-<rect class="bar" x="24" y="50" width="201.01" height="8" rx="4"/>
+<rect class="bar" x="24" y="50" width="201.04" height="8" rx="4"/>
 <text class="muted" x="24" y="86" font-size="13">Implemented</text>
 <text x="376" y="86" font-size="13" text-anchor="end">58.59% (2,951 / 5,037)</text>
 <text class="muted" x="24" y="106" font-size="13">Accuracy</text>
-<text x="376" y="106" font-size="13" text-anchor="end">97.47%</text>
+<text x="376" y="106" font-size="13" text-anchor="end">97.49%</text>
 </svg>
